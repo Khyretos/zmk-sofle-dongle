@@ -27,13 +27,19 @@
     trigger-period-ms = <16>;
 };
 
-
 / {
 
-    scroll_encoder: scroll_encoder {
+    scroll_encoder_1: scroll_encoder {
         compatible = "zmk,behavior-sensor-rotate";
         #sensor-binding-cells = <0>;
         bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
+        tap-ms = <100>;
+    };
+
+    scroll_encoder_2: scroll_encoder {
+        compatible = "zmk,behavior-sensor-rotate";
+        #sensor-binding-cells = <0>;
+        bindings = <&msc SCRL_RIGHT>, <&msc SCRL_LEFT>;
         tap-ms = <100>;
     };
 
@@ -49,17 +55,17 @@
 &kp PSCRN  &kp LCTRL		&kp LEFT_GUI	&kp LALT  	&kp SPACE	&mo 1 		&kp INS		&mo 2	&kp SPACE	&kp LEFT   	&kp DOWN	&kp RIGHT	
             >;
 
-            sensor-bindings = <&inc_dec_kp SCRL_RIGHT SCRL_LEFT>;
+            sensor-bindings = <&scroll_encoder_2>;
             display-name = "Main";
         };
 
 		layer_1 {
             bindings = <
-&kp GRAVE   &kp F1           &kp F2          &kp F3           	&kp F4           	&kp F5             	&kp C_PREVIOUS   	&kp F6		&kp F7		&kp F8      &kp F9    	&kp F10		&trans
-&trans      &trans   	     &trans          &trans        		&trans       		&trans          	&kp C_NEXT			&kp F11     &kp F12     &trans      &kp MINUS   &kp EQUAL	&trans
-&trans      &trans	         &trans          &trans           	&trans           	&mkp MB5           	&kp C_REWIND   		&trans 	    &kp LBKT    &kp RBKT    &kp NUBS    &kp SQT		&trans
-&trans      &rgb_ug RGB_OFF  &rgb_ug RGB_ON  &rgb_ug RGB_EFF	&rgb_ug RGB_EFR		&rgb_ug RGB_SPI		&kp C_FAST_FORWARD	&trans  	&trans      &trans      &kp SLASH   &trans  	&trans
-&kp C_MUTE  &rgb_ug RGB_BRI  &rgb_ug RGB_BRD &trans           	&trans           	&trans             	&kp C_PLAY_PAUSE    &trans      &trans      &trans      &trans		&trans
+&kp GRAVE   		&kp F1           &kp F2          	&kp F3           	&kp F4           	&kp F5      &kp C_PREVIOUS   	&kp F6		&kp F7		&kp F8      &kp F9    	&kp F10		&trans
+&trans      		&rgb_ug RGB_ON   &rgb_ug RGB_OFF    &trans        		&trans       		&trans      &kp C_NEXT			&kp F11     &kp F12     &trans      &kp MINUS   &kp EQUAL	&trans
+&trans      		&rgb_ug RGB_SAI	 &rgb_ug RGB_SAD    &trans           	&trans           	&trans      &kp C_REWIND   		&trans 	    &kp LBKT    &kp RBKT    &kp NUBS    &kp SQT		&trans
+&trans      	 	&rgb_ug RGB_HUI  &rgb_ug RGB_HUD	&rgb_ug RGB_EFF		&rgb_ug RGB_EFR		&trans		&kp C_FAST_FORWARD	&trans  	&trans      &trans      &kp SLASH   &trans  	&trans
+&rgb_ug RGB_TOG		&rgb_ug RGB_BRI  &rgb_ug RGB_BRD	&rgb_ug RGB_SPI    	&rgb_ug RGB_SPD     &trans      &kp C_PLAY_PAUSE    &trans      &trans      &trans      &trans		&trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
@@ -68,14 +74,14 @@
 
         layer_2 {
             bindings = <
-&kp TILDE  &bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &mmv MOVE_UP     &trans  &trans  &trans      	&trans     	&trans			&trans
-&trans     &bt BT_CLR    &bt BT_CLR_ALL  &mkp RCLK     &mkp MCLK     &mkp LCLK       &mmv MOVE_DOWN   &trans  &trans  &trans		&trans     	&trans    		&trans
-&trans     &out OUT_USB  &out OUT_BLE    &trans        &trans        &trans          &mmv MOVE_LEFT   &trans  &trans  &trans	    &trans     	&trans     		&trans
-&trans     &sys_reset    &trans          &bootloader   &trans        &trans          &mmv MOVE_RIGHT  &trans  &trans  &sys_reset 	&soft_off	&bootloader		&trans
-&trans     &trans        &trans          &trans        &trans        &trans          &mkp LCLK        &trans  &trans  &trans      	&trans     	&trans
+&trans	&bt BT_SEL 0	&bt BT_SEL 1    &bt BT_SEL 2	&bt BT_SEL 3  	&bt BT_SEL 4    &mmv MOVE_UP     	&mkp MB2	&mkp MB3	&trans		&trans     	&trans		&trans
+&trans  &bt BT_CLR    	&bt BT_CLR_ALL  &tran     		&tran			&tran			&mmv MOVE_DOWN   	&mkp MB4	&mkp MB5	&trans		&trans     	&trans    	&trans
+&trans  &out OUT_USB 	&out OUT_BLE    &trans        	&trans			&trans          &mmv MOVE_LEFT   	&trans		&trans		&trans		&trans     	&trans     	&trans
+&trans  &EP_ON	    	&EP_OFF	        &trans   		&trans			&trans          &mmv MOVE_RIGHT		&trans		&trans		&trans		&trans		&trans		&trans
+&trans  &sys_reset    	&soft_off       &bootloader     &OUT_TOG		&EP_TOG         &mkp MB1        	&trans		&trans		&trans		&trans     	&trans
             >;
 
-            sensor-bindings = <&scroll_encoder>;			
+            sensor-bindings = <&scroll_encoder_1>;			
 			display-name = "System";
         };
     };
