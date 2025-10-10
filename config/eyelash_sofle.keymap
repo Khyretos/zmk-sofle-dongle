@@ -74,11 +74,11 @@
 
         layer_2 {
             bindings = <
-&trans	&bt BT_SEL 0	&bt BT_SEL 1    &bt BT_SEL 2	&bt BT_SEL 3  	&bt BT_SEL 4    &mmv MOVE_UP     	&mkp MB2	&mkp MB3	&trans		&trans     	&trans		&trans
-&trans  &bt BT_CLR    	&bt BT_CLR_ALL  &tran     		&tran			&tran			&mmv MOVE_DOWN   	&mkp MB4	&mkp MB5	&trans		&trans     	&trans    	&trans
-&trans  &out OUT_USB 	&out OUT_BLE    &trans        	&trans			&trans          &mmv MOVE_LEFT   	&trans		&trans		&trans		&trans     	&trans     	&trans
-&trans  &EP_ON	    	&EP_OFF	        &trans   		&trans			&trans          &mmv MOVE_RIGHT		&trans		&trans		&trans		&trans		&trans		&trans
-&trans  &sys_reset    	&soft_off       &bootloader     &OUT_TOG		&EP_TOG         &mkp MB1        	&trans		&trans		&trans		&trans     	&trans
+&trans			&bt BT_SEL 0		&bt BT_SEL 1    	&bt BT_SEL 2	&bt BT_SEL 3  	&bt BT_SEL 4    	&mmv MOVE_UP     	&mkp MB2	&mkp MB3	&trans		&trans     	&trans		&trans
+&trans  		&bt BT_CLR    		&bt BT_CLR_ALL  	&trans    		&trans			&trans				&mmv MOVE_DOWN   	&mkp MB4	&mkp MB5	&trans		&trans     	&trans    	&trans
+&trans  		&out OUT_USB 		&out OUT_BLE    	&trans        	&trans			&trans          	&mmv MOVE_LEFT   	&trans		&trans		&trans		&trans     	&trans     	&trans
+&trans  		&ext_power EP_ON	&ext_power EP_OFF	&trans   		&trans			&trans          	&mmv MOVE_RIGHT		&trans		&trans		&trans		&trans		&trans		&trans
+&studio_unlock  &sys_reset    		&soft_off       	&bootloader     &out OUT_TOG	&ext_power EP_TOG   &mkp MB1        	&trans		&trans		&trans		&trans     	&trans
             >;
 
             sensor-bindings = <&scroll_encoder_1>;			
