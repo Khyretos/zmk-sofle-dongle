@@ -44,9 +44,9 @@
         tap-ms = <100>;
     };
 
-    hm: hm {
+    hmr: hmr {
         compatible = "zmk,behavior-hold-tap";
-        label = "HM";
+        label = "HMR";
         bindings = <&kp>, <&kp>;
 
         #binding-cells = <2>;
@@ -54,6 +54,20 @@
         quick-tap-ms = <200>;
         require-prior-idle-ms = <200>;
         flavor = "tap-preferred";
+        hold-trigger-key-positions = <35>;
+    };
+
+    hml: hml {
+        compatible = "zmk,behavior-hold-tap";
+        label = "HML";
+        bindings = <&kp>, <&kp>;
+
+        #binding-cells = <2>;
+        tapping-term-ms = <200>;
+        quick-tap-ms = <200>;
+        require-prior-idle-ms = <200>;
+        flavor = "tap-preferred";
+        hold-trigger-key-positions = <29>;
     };
 
     combos {
@@ -67,11 +81,11 @@
     };
 
     macros {
-        hola: new_macro {
+        macro1: macro1 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&none &kp LS(H) &kp LS(O) &kp LS(L) &kp LS(A)>;
-            label = "NEW_MACRO";
+            bindings = <&kp LS(T) &kp H &kp I &kp S &kp LS(I) &kp S &kp LS(N) &kp O &kp LS(G) &kp A &kp M &kp E &kp LS(B) &kp O &kp Y &kp EXCL>;
+            label = "macro1";
         };
     };
 
@@ -83,11 +97,11 @@
 
         layer0 {
             bindings = <
-&kp ESC    &kp N1     &kp N2        &kp N3    &kp N4     &kp N5    &kp PG_UP  &kp N6  &kp N7          &kp N8          &kp N9     &kp N0     &kp BACKSPACE
-&kp TAB    &kp Q      &kp W         &kp E     &kp R      &kp T     &kp PG_DN  &kp Y   &kp U           &kp I           &kp O      &kp P      &kp DEL
-&kp CAPS   &kp A      &kp S         &kp D     &kp F      &kp G     &kp HOME   &kp H   &hm LEFT_GUI J  &hm LEFT_GUI K  &kp L      &kp SEMI   &kp ENTER
-&kp LSHFT  &kp Z      &kp X         &kp C     &kp V      &kp B     &kp END    &kp N   &kp M           &kp UP          &kp COMMA  &kp DOT    &kp RIGHT_SHIFT
-&hola      &kp LCTRL  &kp LEFT_GUI  &kp LALT  &kp SPACE  &mo 1     &kp INS    &mo 2   &kp SPACE       &kp LEFT        &kp DOWN   &kp RIGHT
+&kp ESC    &kp N1     &kp N2        &kp N3    &kp N4     &kp N5    &kp PG_UP  &kp N6  &kp N7           &kp N8           &kp N9     &kp N0     &kp BACKSPACE
+&kp TAB    &kp Q      &kp W         &kp E     &kp R      &kp T     &kp PG_DN  &kp Y   &kp U            &kp I            &kp O      &kp P      &kp DEL
+&kp CAPS   &kp A      &kp S         &kp D     &kp F      &kp G     &kp HOME   &kp H   &hmr LEFT_GUI J  &hmr LEFT_GUI K  &kp L      &kp SEMI   &kp ENTER
+&kp LSHFT  &kp Z      &kp X         &kp C     &kp V      &kp B     &kp END    &kp N   &kp M            &kp UP           &kp COMMA  &kp DOT    &kp RIGHT_SHIFT
+&macro1    &kp LCTRL  &kp LEFT_GUI  &kp LALT  &kp SPACE  &mo 1     &kp INS    &mo 2   &kp SPACE        &kp LEFT         &kp DOWN   &kp RIGHT
             >;
 
             sensor-bindings = <&scroll_encoder_2>;
