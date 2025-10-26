@@ -35,8 +35,8 @@ layers:
   - G
   - HOME
   - H
-  - J
-  - K
+  - {t: J, h: '$$mdi:apple-keyboard-command$$'}
+  - {t: K, h: '$$mdi:apple-keyboard-command$$'}
   - L
   - {t: ;, s: ':'}
   - {t: '$$mdi:keyboard-return$$', type: enter}
@@ -52,8 +52,8 @@ layers:
   - $$mdi:arrow-up-bold$$
   - {t: ',', s: <}
   - {t: ., s: '>'}
-  - APP
-  - $$mdi:printer-outline$$
+  - $$mdi:apple-keyboard-shift$$
+  - '&hola'
   - $$mdi:apple-keyboard-control$$
   - $$mdi:apple-keyboard-command$$
   - $$mdi:apple-keyboard-option$$
@@ -195,3 +195,7 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
+combos:
+- p: [34, 35]
+  k: $$mdi:apple-keyboard-command$$
+  l: [Main]
