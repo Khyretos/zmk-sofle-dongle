@@ -199,3 +199,9 @@ combos:
 - p: [34, 35, 36]
   k: $$mdi:apple-keyboard-command$$
   l: [Main]
+- p: [33, 34, 35]
+  k: $$mdi:apple-keyboard-control$$
+  l: [Main]
+- p: [35, 36, 37]
+  k: $$mdi:apple-keyboard-option$$
+  l: [Main]
