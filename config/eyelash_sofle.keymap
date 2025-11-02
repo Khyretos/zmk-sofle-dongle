@@ -47,9 +47,21 @@
     combos {
         compatible = "zmk,combos";
 
-        test {
+        Gui {
             bindings = <&kp LEFT_GUI>;
             key-positions = <34 35 36>;
+            layers = <0>;
+        };
+
+        Ctrl {
+            bindings = <&kp LCTRL>;
+            key-positions = <33 34 35>;
+            layers = <0>;
+        };
+
+        Alt {
+            bindings = <&kp LEFT_ALT>;
+            key-positions = <35 36 37>;
             layers = <0>;
         };
     };
